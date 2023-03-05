@@ -5,4 +5,8 @@ import store from './store'
 import "./tailwind.css"
 import "animate.css"
 
-createApp(App).use(store).use(router).mount('#app')
+let app = createApp(App)
+
+app.use(store)
+app.use(router)
+app.mount('#app')

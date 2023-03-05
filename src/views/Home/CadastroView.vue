@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="sm:mx-16 md:mx-20 lg:mx-48">
         <div class="text-center mt-10">
             <h1 class="text-3xl font-bold">Cadastro</h1>
         </div>

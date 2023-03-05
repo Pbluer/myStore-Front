@@ -51,7 +51,7 @@
 
       <div class="ml-4">
         <router-link to="/">
-          <logoIcon color="#4ADE80" widht="50px" height="50px" class="mr-2" />
+          <logoIcon color="#4ADE80" width="50px" height="50px" class="mr-2" />
         </router-link>
       </div>
 
@@ -59,7 +59,7 @@
         <menuIcon color="#1F2937" width="25px" height="25px"/>
       </button>
 
-      <nav class="mt-[16rem] shadow-md absolute bg-gray-200 rounded-lg p-2 right-5 animate__animated animate__fadeInRight" :class="menu.class">
+      <nav class="mt-[16rem] shadow-md absolute bg-gray-200 z-50 rounded-lg p-2 right-5 animate__animated animate__fadeInRight" :class="menu.class">
         
         <div class="flex justify-center mb-2">
           <button @click="openModalLogin" class="border border-gray-500 p-2 rounded-xl hover:bg-green-400"> 
@@ -71,21 +71,23 @@
           <li class="mx-2">
             <router-link to="/" class="text-blue-600 font-bold hover:underline"> Inicio </router-link>  
           </li>
-          <li class="mx-2"> <a href="#" class="hover:underline"> Masculino</a> </li>
+          
+          <li class="mx-2"> <router-link to="/"></router-link>
+            <a href="#" > Masculino</a> </li>
           <li class="mx-2"> <a href="#" class="hover:underline"> Feminino </a> </li>
           <li class="mx-2"> <a href="#" class="hover:underline"> Infantil </a> </li>
         </ul>
       </nav>    
     </div>    
   </div>  
-</template>''
+</template>
 <script>
 import logoIcon from "@/assets/icon/logoIcon.vue"
 import menuIcon from "@/assets/icon/menuIcon.vue"
 import openEyeIcon from "@/assets/icon/openEyeIcon.vue"
 import closeEyeIcon from "@/assets/icon/closeEyeIcon.vue"
 
-import basedModalComponente from "@/components/base/basedModalComponente.vue"
+import basedModalComponente from "@/components/Base/basedModalComponente.vue"
 
 export default {
   data() {
@@ -95,7 +97,7 @@ export default {
         class: 'hidden'
       },
       modalLogin:{
-        show: true
+        show: false
       },
       hiddenPassword:{
         type: 'password',
@@ -139,7 +141,7 @@ export default {
 
     },
     showPassword(){
-      console.log('entrei')
+
       if( this.hiddenPassword.show ){
         this.hiddenPassword.type = 'text'
         this.hiddenPassword.show = false

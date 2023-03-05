@@ -11,6 +11,11 @@ const routes = [
     path:'/cadastro',
     name:'Cadastro',
     component: () => import('@/views/Home/CadastroView.vue')
+  },
+  {
+    path:'/detalhe/:id',
+    name:'detalhe',
+    component: () => import('@/views/Detalhe/detalheView.vue')
   }
 /*   {
     path: '/about',
