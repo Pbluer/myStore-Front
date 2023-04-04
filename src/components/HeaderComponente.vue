@@ -36,12 +36,9 @@
           <div class="flex justify-center mt-6">
             <button
               class="flex items-center w-56 h-8 rounded-sm shadow-sm bg-transparent justify-center border-2 border-gray-600 hover:bg-gray-600  hover:text-white "
-              type="submit">
-
-        
+              type="submit">        
               <loadingIcon v-show="loading" class="animate-low" color="#00000" width="20px" ></loadingIcon>
               <span v-show="!loading" >Logar</span>
-
             </button>
           </div>
 
@@ -179,20 +176,29 @@ export default {
 
         let { status, mensage } = res.data;
 
-        if (status == 400) {
+        if (status >= 400 ) {
           this.modalLogin.warning.class = 'bg-red-600'
           this.modalLogin.warning.show = true
           this.modalLogin.warning.mensage = mensage
+
+          setInterval( () =>   this.modalLogin.warning.show = false ,3500 )
         }
+
+        if( status >= 200  && status <= 299 ){
+          this.modalLogin.warning.class = 'bg-green-600'
+          this.modalLogin.warning.show = true
+          this.modalLogin.warning.mensage = mensage
+
+          setInterval( () =>  this.modalLogin.warning.show = false ,4500 )
+        }      
+
         this.loading = false;
-      }).catch( () => {
-             
+      }).catch( () => {             
         this.modalLogin.warning.class = 'bg-red-600'
         this.modalLogin.warning.show = true
         this.modalLogin.warning.mensage = 'Problema encontrado com a conexão no servidor.'        
-        this.loading = false;
+        this.loading = false;        
       })
-
      
     },
     showPassword() {
